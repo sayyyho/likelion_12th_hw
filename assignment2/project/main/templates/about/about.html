@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+  {% load static %}
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="{% static "css/global.css" %}">
+  </head>
+
+  <body>
+    {% include "shared/_nav.html" %}
+    <main>
+      <article>
+        <figure>
+          <img src="https://avatars.githubusercontent.com/u/34148750?v=4" alt="my_image" width="250px">
+        </figure>
+      </article>
+      <h2>안녕하세요. 아기사자 박세호입니다.</h2>
+      <p>만나서 반가워요☺️</p>
+    </main>
+  </body>
+
+</html>

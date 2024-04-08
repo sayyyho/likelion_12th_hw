@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+  {% load static %}
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTV</title>
+    <link rel="stylesheet" href="{% static "css/global.css" %}">
+    <link rel="stylesheet" href="{% static "css/mtv.css" %}">
+  </head>
+
+  <body>
+    {% include "shared/_nav.html" %}
+    <main>
+      <article>
+        <h2>Django MTV란</h2>
+        <br/>
+        <figure>
+          <img src="{% static "images/mtv.png" %}" alt="mtv">
+        </figure>
+        <br/>
+        <ol>
+          {% for data in datas %}
+            <li>{{data}}</li>
+          {% endfor %}
+        </ol>
+
+      </article>
+
+    </main>
+  </body>
+
+</html>
