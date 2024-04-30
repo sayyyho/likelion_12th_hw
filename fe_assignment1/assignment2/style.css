@@ -1,0 +1,77 @@
+body {
+  margin: 0 auto;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  color: white;
+}
+.container {
+  height: 100%;
+  width: 40%;
+  /* display: flex; */
+  flex-direction: column;
+  background-color: black;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.item {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.item:nth-child(1) {
+  flex: 0 1 auto;
+}
+.item:nth-child(2) {
+  flex: 1 1 auto;
+}
+.item:nth-child(3) {
+  flex: 0 1 auto;
+}
+
+.logo {
+  border-radius: 50%;
+}
+
+.content {
+  width: 100%;
+  height: 65%;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.section-1 {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.info {
+  padding-left: 1rem;
+}
+
+p {
+  margin: 0;
+}
+
+.article {
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+
+.date {
+  color: gray;
+  font-size: 0.7rem;
+}
