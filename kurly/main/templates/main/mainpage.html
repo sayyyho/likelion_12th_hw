@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% load static %}
+  <!-- css 파일 -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main/main_page.css'%}"/>
+
+  <div class="tag-box">
+    <div class="tag-list">
+      <a class="tag-item tag-selection">인기신상랭킹</a>
+      <a class="tag-item">입점특가</a>
+      <a class="tag-item">간편한끼</a>
+      <a class="tag-item">요즘간식</a>
+      <a class="tag-item">주방·리빙</a>
+      <a class="tag-item">뷰티</a>
+      <a class="tag-item">패션·잡화</a>
+    </div>
+  </div>
+  <div class="contents-wrapper">
+    <div class="filter-box">
+      <div class="filter-head">
+        <p>필터</p>
+        <div class="reset-view">
+          <img src="{% static 'assets/icons/restart.svg' %}" alt="reset" id="clear">
+          <p>초기화</p>
+        </div>
+      </div>
+      <div class="category-box">
+        <div class="category-head">
+          <p>카테고리</p>
+          <img src="{% static "assets/icons/up.svg" %}" alt="up">
+        </div>
+        <div class="category-list"> 
+          <div class="category-item">
+            <input type="checkbox" id="check-1">
+            <label for="check-1" class="item-name">스킨케어·메이크업</label>
+            <span class="item-count" id="count-1">68</span>
+          </div>
+          <div class="category-item">
+            <input type="checkbox" id="check-2">
+            <label for="check-2" class="item-name">럭셔리뷰티</label>
+            <span class="item-count" id="count-2">24</span>
+          </div>
+          <div class="category-item">
+            <input type="checkbox" id="check-3">
+            <label for="check-3" class="item-name">간식·과자·떡</label>
+            <span class="item-count" id="count-3">28</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contents-box">
+      <div class="sorting-bar">
+        <div class="sorting-count">총 508건</div>
+        <div class="sorting-list">
+          <span class="sorting-item sorting-select">추천순</span>
+          <span>|</span>
+          <span class="sorting-item">신상품순</span>
+          <span>|</span>
+          <span class="sorting-item">판매량순</span>
+          <span>|</span>
+          <span class="sorting-item">혜택순</span>
+          <span>|</span>
+          <span class="sorting-item">낮은 가격순</span>
+          <span>|</span>
+          <span class="sorting-item">높은 가격순</span>
+        </div>
+      </div>
+      <div class="category-selection-view hidden-class">
+        <div class="category-selection-item hidden-class" id="selection-1">
+          <p>스킨케어·메이크업</p>
+          <img src="{% static "assets/icons/close.svg" %}" alt="삭제">
+        </div>
+        <div class="category-selection-item hidden-class" id="selection-2">
+          <p>럭셔리뷰티</p>
+          <img src="{% static "assets/icons/close.svg" %}" alt="삭제">
+        </div>
+        <div class="category-selection-item hidden-class" id="selection-3">
+          <p>간식·과자·떡</p>
+          <img src="{% static "assets/icons/close.svg" %}" alt="삭제">
+        </div>
+      </div>
+      
+      
+      <div class="product-frame">
+        {% for product in products %}
+        <div class="product-card">
+          <a href="product/{{product.id}}"><img src="{{product.image_url}}"/></a>
+          <div class="cart">
+            <img src="{% static "assets/icons/cart.svg" %}" alt="카트"/>
+            <p>담기</p>
+          </div>
+          <div class="product-info">
+            <p>샛별배송</p>
+            <p><a href="product/{{product.id}}">{{product}}</a></p>
+            <p>{{product.description}}</p>
+            <div class="price-box">
+              <p id="origin-price">{{product.origin_price}}원</p>
+              <div class="discount-box">
+                <p id="discount-rate">{{product.discount_rate}}%</p>
+                <p>{{product.discount_price}}원</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      {% endfor %}
+      </div>
+
+    </div>
+  </div>
+  {% comment %}   <a href="product/{{product.id}}">
+        </a> {% endcomment %}
+  <!-- js 파일 -->
+  {% comment %} <div style="display: flex">
+    {% for product in products %}
+      <a href="product/{{product.id}}">
+        <img src="{{product.image_url}}" style="width: 100px"/>
+        <p>{{product}}</p>
+        <p>{{product.description}}</p>
+        <p>{{product.origin_price}}원</p>
+        <p>{{product.discount_rate}}%</p>
+        <p>{{product.discount_price}}원</p>
+      </a>
+    {% endfor %}
+  </div> {% endcomment %}
+  <script src="{% static 'js/main/main_page.js'%}"></script>
+{% endblock %}
+
+<!----------------tip!---------------->
+<!-- 상품 데이터베이스는 프로젝트에 넣어뒀어요 -->
+<!-- 아래와 같은 형식으로 for문을 사용하여 작성하세요 -->
+
+<!-- 데이터 사용 예시 -->
